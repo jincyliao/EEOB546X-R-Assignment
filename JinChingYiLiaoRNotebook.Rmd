@@ -126,7 +126,7 @@ TRUE
 Maize_joined <- merge(SNPposition_sorted, Maize_sorted, by.x="SNP_ID", by.y="SNP_ID")
 Teosinte_joined <- merge(SNPposition_sorted, Teosinte_sorted, by.x="SNP_ID", by.y="SNP_ID")
 ```
-**10. Order the dataset based on increasing position values and with missing data encoded by symbol *?* **
+**10. Order the dataset based on increasing position values and with missing data encoded by symbol ?**
 
 ```{r}
 MaizeIncrease_ordered <- Maize_joined[mixedorder(Maize_joined$Position),] 
@@ -143,7 +143,7 @@ write.table(TeosinteChr1, "TeosinteChr1.txt", sep="\t", row.names = FALSE)
 ```
 (Repeat for each chromosome.)
 
-**11. Order the dataset based on decreasing position values and with missing data encoded by symbol - **
+**11. Order the dataset based on decreasing position values and with missing data encoded by symbol -**
 ```{r}
 Maize_missing <- as.data.frame(lapply(Maize_joined, function(x) {gsub("\\?","-", x)})) # missing data replaced with symbol -
 Teosinte_missing <- as.data.frame(lapply(Teosinte_joined, function(x) {gsub("\\?","-", x)})) # missing data replaced with symbol -
