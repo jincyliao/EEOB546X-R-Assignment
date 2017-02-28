@@ -166,7 +166,8 @@ write.table(TeosinteChr1_d, "TeosinteChr1_d.txt", sep="\t", row.names = FALSE)
 #Part II
 
 ###*SNPs per chromosome*
-**1. Retake the joined dataframes without removing data and NA values. **
+
+**1. Retake the joined dataframes without removing data and NA values.**
 ```{r}
 Genotypes_joined <- merge(SNPposition_sorted, Genotypes_transposed, by.x = "SNP_ID", by.y ="row.names", all.y = TRUE)
 ```
@@ -183,7 +184,8 @@ ggplot(Genotypes, aes(Group)) +  geom_bar()
 ZMMIL, ZMMLR and ZMPBA contribute most of these SNPs.
 
 ###*Missing data and amount of heterozygosity*
-**1. Using the melt command in the reshape2 package to make the datasets tidy. 
+
+**1. Using the melt command in the reshape2 package to make the datasets tidy.**
 ```{r}
 HeadersNames<- colnames(Genotypes)[-c(1:3)]
 Genotypes_melted <- melt(Genotypes, measure.vars = HeadersNames)
@@ -193,7 +195,7 @@ Genotypes_melted <- melt(Genotypes, measure.vars = HeadersNames)
 Genotypes_melted[ Genotypes_melted == "?/?" ] = NA  # assign all missing values as NA
 Genotypes_melted$isHomozygous <- (Genotypes_melted$value=="A/A" | Genotypes_melted$value=="C/C" | Genotypes_melted$value=="G/G" | Genotypes_melted$value=="T/T")
 ```
-**3. Sort the dataframe using Group and Species_ID values. **
+**3. Sort the dataframe using Group and Species_ID values.**
 ```{r}
 Genotypes_sorted_SampleID <- Genotypes_melted[order(Genotypes_melted$Sample_ID),]
 Genotypes_sorted_Group <- Genotypes_melted[order(Genotypes_melted$Group),]
