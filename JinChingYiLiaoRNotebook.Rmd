@@ -3,7 +3,7 @@ title: "Jin(Ching-Yi Liao)'s R Notebook"
 output: html_notebook
 ---
 ```{r}
-setwd("/Users/user/R-Assignment")
+setwd("/Users/user/EEOB546X-R-Assignment")
 ```
 #Part I
 
